@@ -42,7 +42,7 @@ Currently available for:
 - ✅ Heavy Metal
 - ✅ Melodic Metal
 
-See [`CREATED_PRESETS.md`](CREATED_PRESETS.md) for detailed descriptions and engineering notes.
+See [`config/CREATED_PRESETS.md`](config/CREATED_PRESETS.md) for detailed descriptions and engineering notes.
 
 ## 🎛️ How It Works
 
@@ -82,7 +82,7 @@ Open a [GitHub Issue](https://github.com/rhahermann/peace-preset-generator/issue
 ### Option 2: Use Claude Code (AI-Assisted)
 If you have access to Claude Code:
 
-1. Add your request to `PRESETS_TO_CREATE.md`:
+1. Add your request to `config/PRESETS_TO_CREATE.md`:
    ```
    Lo-Fi Hip-Hop @ Sennheiser HD 4.40 BT
    Progressive House @ JBL Tune 520BT
@@ -132,7 +132,7 @@ Contributions welcome! Here's how:
 
 If you've manually tuned a great preset:
 1. Add it to `output/[Genre] - [Headphone].peace`
-2. Document in `CREATED_PRESETS.md` with reasoning
+2. Document in `config/CREATED_PRESETS.md` with reasoning
 3. Submit a pull request
 
 ### Report Issues
@@ -146,9 +146,10 @@ Found a preset that sounds off? Open an issue with:
 ## 📖 Documentation
 
 - [`CLAUDE.md`](CLAUDE.md) - Complete generation workflow and audio engineering principles
-- [`CONFIG.md`](CONFIG.md) - Headphone configuration and defaults
-- [`CREATED_PRESETS.md`](CREATED_PRESETS.md) - Detailed preset catalog with engineering notes
+- [`config/CONFIG.md`](config/CONFIG.md) - Headphone configuration and defaults
+- [`config/CREATED_PRESETS.md`](config/CREATED_PRESETS.md) - Detailed preset catalog with engineering notes
 - [`headphone_profiles/`](headphone_profiles/) - Individual headphone analysis documents
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) - Contribution guidelines
 
 ## 🔬 Technical Details
 

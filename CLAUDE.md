@@ -2,21 +2,21 @@
 
 This repository generates custom Peace Equalizer presets based on music genres and listening styles, optimized for specific headphone models.
 
-**Default Target:** Check `CONFIG.md` for the currently active headphone profile.  
+**Default Target:** Check `config/CONFIG.md` for the currently active headphone profile.  
 **Available Profiles:** See `headphone_profiles/` directory.
 
 ## Workflow
 
-1. User adds music styles to `PRESETS_TO_CREATE.md`
-   - Format: `[Style] @ [Headphone Model]` (or omit model to use default from CONFIG.md)
+1. User adds music styles to `config/PRESETS_TO_CREATE.md`
+   - Format: `[Style] @ [Headphone Model]` (or omit model to use default from config/CONFIG.md)
 2. User says "create the presets" or "run it"
 3. Claude:
-   - Reads `CONFIG.md` for the active/default headphone
+   - Reads `config/CONFIG.md` for the active/default headphone
    - Reads the spec file
    - For each preset, determines which headphone profile to use
    - Reads the appropriate profile from `headphone_profiles/[Model].md`
-   - Generates `.peace` files in `/output` folder with format: `[Style] - [Model].peace`
-   - Adds to `CREATED_PRESETS.md` with date, description, and target headphone
+   - Generates `.peace` files in `output/` folder with format: `[Style] - [Model].peace`
+   - Adds to `config/CREATED_PRESETS.md` with date, description, and target headphone
    - Clears completed items from spec file
 
 ## Preset Format
