@@ -2,7 +2,7 @@
 
 AI-powered EQ preset generator for [Peace Equalizer](https://sourceforge.net/projects/peace-equalizer-apo-extension/) (Equalizer APO extension). Uses headphone-specific profiles and audio engineering principles to generate optimized presets for any music genre.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 ## 🎧 What is This?
 
@@ -179,7 +179,7 @@ Bluetooth presets account for:
 
 ## 📜 License
 
-MIT License - See [LICENSE](LICENSE) for details.
+GNU General Public License v3.0 - See [LICENSE](LICENSE) for details.
 
 This project is independent and not affiliated with Peace Equalizer or Equalizer APO.
 
