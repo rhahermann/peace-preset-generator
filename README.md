@@ -1,6 +1,6 @@
 # Peace Preset Generator
 
-AI-powered EQ preset generator for [Peace Equalizer](https://sourceforge.net/projects/peace-equalizer-apo-extension/) (Equalizer APO extension). Uses headphone-specific profiles and audio engineering principles to generate optimized presets for any music genre.
+AI-powered EQ preset generator for [Peace Equalizer](https://sourceforge.net/projects/peace-equalizer-apo-extension/) (Equalizer APO extension). Uses device-specific profiles and audio engineering principles to generate optimized presets for any audio device and music genre.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
@@ -8,37 +8,39 @@ AI-powered EQ preset generator for [Peace Equalizer](https://sourceforge.net/pro
 
 An **AI-powered preset generator** that creates genre-optimized EQ profiles for Peace Equalizer. Unlike generic device correction profiles, this tool generates **ready-to-import presets** that combine:
 
-- **Headphone-specific compensation** - Corrects your model's frequency response weaknesses
+- **Device-specific compensation** - Corrects your headphones/speakers frequency response weaknesses
 - **Genre-specific optimization** - Different curves for Metal, Trance, Classical, etc.
 - **Audio engineering expertise** - Professional EQ principles applied automatically
 
 ### What Makes This Different?
 
 **✅ This project generates:**
-- Genre-tailored presets (same headphones, different sound for different music)
+- Genre-tailored presets (same device, different sound for different music)
 - Ready-to-import `.peace` files (no manual configuration)
-- AI-assisted creation at scale (request any genre + headphone combination)
+- AI-assisted creation at scale (request any genre + device combination)
 - Detailed engineering rationale for each preset
 
 **❌ This is NOT:**
 - A manual device correction database
 - A one-size-fits-all EQ profile
-- A replacement for researching your headphone's characteristics
+- A replacement for researching your device's characteristics
 - Audio driver software or hardware modification
 
-**Think of it as:** A smart preset factory that understands both your headphones' technical limitations AND what your favorite music genres need to shine.
+**Think of it as:** A smart preset factory that understands both your audio device's technical limitations AND what your favorite music genres need to shine.
 
 ## 🔍 Real-World Example
 
-**Scenario:** You own Sennheiser HD 4.40 BT headphones and listen to both Heavy Metal and Classical music.
+**Scenario:** You own Sennheiser HD 4.40 BT headphones and a JBL Flip 6 speaker. You listen to both Heavy Metal and Classical music.
 
-**Generic device profile approach:** One EQ curve that "corrects" your headphones. Sounds decent for everything, perfect for nothing.
+**Generic device profile approach:** One EQ curve that "corrects" your device. Sounds decent for everything, perfect for nothing.
 
 **This generator's approach:** 
-- `Heavy Metal - HD 4.40 BT.peace` - Aggressive, punchy, V-shaped curve
-- `Classical - HD 4.40 BT.peace` - Natural, balanced, minimal coloration
+- `Heavy Metal - HD 4.40 BT.peace` - Aggressive headphone curve (closed-back, sealed bass)
+- `Heavy Metal - JBL Flip 6.peace` - Controlled speaker curve (room acoustics, distance-aware)
+- `Classical - HD 4.40 BT.peace` - Natural headphone balance
+- `Classical - JBL Flip 6.peace` - Natural speaker balance (different from headphone version)
 
-Same headphones, different presets, optimized for each genre's specific needs.
+Same genres, different devices, each preset optimized for the specific combination.
 
 ## 🚀 Quick Start
 
@@ -51,7 +53,7 @@ Same headphones, different presets, optimized for each genre's specific needs.
 ### Using Existing Presets
 
 1. Browse the `output/` folder for available presets
-2. Download a `.peace` file that matches your headphones
+2. Download a `.peace` file that matches your audio device (headphones or speakers)
 3. Open Peace Equalizer
 4. Click "Import" and select the downloaded preset
 5. Enjoy optimized audio!
@@ -60,28 +62,36 @@ Same headphones, different presets, optimized for each genre's specific needs.
 
 Currently available for:
 
-### Sennheiser HD 4.40 BT
+### Headphones
+**Sennheiser HD 4.40 BT**
 - ✅ Vocal Trance
 - ✅ Heavy Metal
 - ✅ Melodic Metal
 
-### JBL Tune 520BT
+**JBL Tune 520BT**
 - ✅ Vocal Trance
 - ✅ Heavy Metal
 - ✅ Melodic Metal
+
+### Speakers
+**JBL Flip 6 (Portable)**
+- ✅ Metal
+- ✅ Hard Rock
 
 See [`config/CREATED_PRESETS.md`](config/CREATED_PRESETS.md) for detailed descriptions and engineering notes.
 
 ## 🎛️ How It Works
 
-### 1. Headphone Profiles
-Each supported headphone has a detailed profile documenting:
+### 1. Device Profiles
+Each supported device has a detailed profile documenting:
 - Native frequency response characteristics
 - Known strengths and weaknesses
 - Compensation strategies
-- Connection type (Bluetooth/wired considerations)
+- Device type (headphone/speaker/soundbar)
+- Connection type (Bluetooth/wired/optical)
+- Use case considerations (listening distance, room placement)
 
-See [`headphone_profiles/`](headphone_profiles/) for examples.
+See [`device_profiles/`](device_profiles/) for examples.
 
 ### 2. Genre Analysis
 The generator understands what different music genres need:
@@ -92,18 +102,19 @@ The generator understands what different music genres need:
 
 ### 3. AI-Assisted Generation
 Using audio engineering principles, the generator:
-1. Reads the headphone profile
+1. Reads the device profile
 2. Analyzes genre requirements
-3. Calculates optimal EQ compensation
-4. Generates the `.peace` preset file
+3. Accounts for device type and use case (headphones vs speakers)
+4. Calculates optimal EQ compensation
+5. Generates the `.peace` preset file
 
 ## 🔧 Generating New Presets
 
-Want a preset for a different genre or your specific headphones?
+Want a preset for a different genre or your specific audio device?
 
 ### Option 1: Request via Issue
 Open a [GitHub Issue](https://github.com/rhahermann/peace-preset-generator/issues) with:
-- Your headphone model
+- Your device model (headphone, speaker, soundbar)
 - Desired music genre
 - Any specific preferences
 
@@ -113,19 +124,24 @@ If you have access to Claude Code:
 1. Add your request to `config/PRESETS_TO_CREATE.md`:
    ```
    Lo-Fi Hip-Hop @ Sennheiser HD 4.40 BT
-   Progressive House @ JBL Tune 520BT
+   Progressive House @ JBL Flip 6
+   Classical @ Default
    ```
 
 2. Run the generator workflow (see [`CLAUDE.md`](CLAUDE.md))
 
 3. New presets appear in `output/` with engineering notes
 
-## 🎯 Supported Headphones
+## 🎯 Supported Devices
 
+### Headphones
 - ✅ **Sennheiser HD 4.40 BT** - Bluetooth, V-shaped signature
 - ✅ **JBL Tune 520BT** - Bluetooth, bass-heavy consumer tuning
 
-Want to add your headphones? See [Contributing](#-contributing) below.
+### Speakers
+- ✅ **JBL Flip 6** - Portable Bluetooth speaker, 2.0 stereo
+
+Want to add your device? See [Contributing](#-contributing) below.
 
 ## 📊 Preset Format
 
@@ -148,25 +164,25 @@ Quality factor: `0.7` (standard)
 
 Contributions welcome! Here's how:
 
-### Add Your Headphone Profile
+### Add Your Device Profile
 
 1. Fork this repository
-2. Research your headphone's frequency response (RTINGS, Crinacle, ASR, etc.)
-3. Create `headphone_profiles/[Your Model].md` using existing profiles as template
+2. Research your device's frequency response (RTINGS, Crinacle, ASR, manufacturer specs)
+3. Create `device_profiles/[category]/[Your Model].md` using existing profiles as template
 4. Add to `CONFIG.md` available profiles list
 5. Submit a pull request
 
 ### Share Your Preset
 
 If you've manually tuned a great preset:
-1. Add it to `output/[Genre] - [Headphone].peace`
+1. Add it to `output/[Genre] - [Device].peace`
 2. Document in `config/CREATED_PRESETS.md` with reasoning
 3. Submit a pull request
 
 ### Report Issues
 
 Found a preset that sounds off? Open an issue with:
-- Headphone model
+- Device model (headphone/speaker/etc)
 - Genre preset used
 - What sounds wrong
 - Your music source quality
@@ -174,34 +190,36 @@ Found a preset that sounds off? Open an issue with:
 ## 📖 Documentation
 
 - [`CLAUDE.md`](CLAUDE.md) - Complete generation workflow and audio engineering principles
-- [`config/CONFIG.md`](config/CONFIG.md) - Headphone configuration and defaults
+- [`config/CONFIG.md`](config/CONFIG.md) - Device configuration and defaults
 - [`config/CREATED_PRESETS.md`](config/CREATED_PRESETS.md) - Detailed preset catalog with engineering notes
-- [`headphone_profiles/`](headphone_profiles/) - Individual headphone analysis documents
+- [`device_profiles/`](device_profiles/) - Individual device analysis documents (headphones, speakers, etc)
+- [`ROADMAP.md`](ROADMAP.md) - Future development plans (filters, multi-channel support)
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) - Contribution guidelines
 
 ## 🎯 Core Philosophy
 
-### Genre + Headphone = Optimized Sound
+### Genre + Device = Optimized Sound
 
-This generator solves a specific problem: **Your headphones sound different depending on what you're listening to.**
+This generator solves a specific problem: **Your audio device sounds different depending on what you're listening to.**
 
 A heavy metal track needs punchy, aggressive mids and controlled bass. A vocal trance track needs deep sub-bass and sparkling highs. Classical music needs natural balance with minimal coloration.
 
-**Generic device profiles can't do this.** They correct the headphone but ignore the music.
+**Generic device profiles can't do this.** They correct the device but ignore the music and use case.
 
-This tool creates **targeted presets** that answer: *"How should these specific headphones be EQ'd for this specific genre?"*
+This tool creates **targeted presets** that answer: *"How should this specific device (headphones/speakers) be EQ'd for this specific genre?"*
 
 ### What You Get
 
 Each generated preset includes:
-- **Headphone analysis** - What frequencies need correction
+- **Device analysis** - What frequencies need correction
 - **Genre requirements** - What the music style demands
+- **Use case considerations** - Room acoustics, listening distance (for speakers)
 - **Engineering rationale** - Why each frequency band is adjusted
 - **Ready-to-use file** - Just import and listen
 
 ### What You Need to Provide
 
-- Your exact headphone model (or add it to the profiles)
+- Your exact device model (or add it to the profiles)
 - The music genre you want optimized
 - Trust in audio engineering principles (or tweak to taste)
 
@@ -227,7 +245,8 @@ Bluetooth presets account for:
 ## ⚠️ Important Notes
 
 - **Start conservative**: Try presets at 80% volume first
-- **Room acoustics matter**: Presets optimize headphones, not speakers
+- **Room acoustics matter for speakers**: Speaker presets assume typical room placement; adjust if near walls
+- **Headphones vs Speakers**: Don't use headphone presets on speakers (or vice versa) - each is optimized differently
 - **Source quality**: High-quality audio files benefit most from EQ
 - **Personal preference**: Feel free to adjust +/- 2dB to taste
 - **Hearing safety**: Avoid excessive bass boost at high volumes
@@ -245,8 +264,9 @@ Bluetooth presets account for:
 **Not ideal for:**
 - All-purpose "set and forget" EQ (use generic device profiles instead)
 - Professional mixing/mastering (use flat reference monitoring)
-- Fixing hardware defects (get better headphones)
+- Fixing hardware defects (get better equipment)
 - Live audio processing (latency considerations)
+- Multi-channel surround systems (not yet supported - see ROADMAP.md)
 
 ## 📜 License
 

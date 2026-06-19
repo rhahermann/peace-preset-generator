@@ -9,7 +9,7 @@ This folder contains the generation workflow configuration and tracking files.
 - **CLAUDE.md** - Complete documentation of the AI-assisted generation workflow and audio engineering principles.
 
 ### Configuration
-- **CONFIG.md** - Headphone configuration. Set the default target headphone and view available profiles.
+- **CONFIG.md** - Device configuration. Set the default target device and view available profiles.
 
 ### Tracking
 - **CREATED_PRESETS.md** - Catalog of all generated presets with descriptions and engineering notes.

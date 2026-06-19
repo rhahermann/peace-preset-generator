@@ -4,32 +4,37 @@ Thank you for your interest in contributing! This project thrives on community i
 
 ## Ways to Contribute
 
-### 1. Add a Headphone Profile
+### 1. Add a Device Profile
 
-Help expand support for more headphones:
+Help expand support for more devices (headphones, speakers, soundbars, etc):
 
-1. **Research the headphone**
-   - Find frequency response measurements (RTINGS, Crinacle, ASR)
+1. **Research the device**
+   - Find frequency response measurements (RTINGS, Crinacle, ASR, manufacturer specs)
    - Note bass/mid/treble characteristics
    - Identify strengths and weaknesses
+   - Understand use case (listening distance, room acoustics for speakers)
 
 2. **Create the profile**
-   - Copy an existing profile from `headphone_profiles/`
+   - Copy an existing profile from `device_profiles/[category]/`
    - Fill in technical details
    - Document compensation strategies
    - Include frequency-specific guidance
+   - Add device type and channel configuration
 
 3. **Submit**
-   - Add profile to `headphone_profiles/[Model Name].md`
+   - Add profile to `device_profiles/[category]/[Model Name].md`
    - Update `CONFIG.md` with the new model
    - Create a pull request
 
 **Template structure:**
 ```markdown
-# Headphone Profile: [Model Name]
+# [Model Name]
 
-## Target Headphone
-**Model:** [Full model name]
+## Device Type
+**[Headphone / Portable Speaker / Desktop Speaker / Soundbar / etc]**
+
+## Channel Configuration
+**[2.0 / 2.1 / 5.1 / etc]**
 
 ## Native Sound Signature
 - Overall character
@@ -38,13 +43,18 @@ Help expand support for more headphones:
 - Treble
 - Connection type
 
+## Use Case Considerations (for speakers)
+- Typical listening scenarios
+- Room placement impact
+- Listening distance
+
 ## Compensation Strategy
 - What needs correction
 - Frequency-specific adjustments
 - Genre-specific approaches
 
 ## Technical Specifications
-- Driver size, impedance, etc.
+- Driver size, impedance, power output, etc.
 ```
 
 ### 2. Share Your Presets
@@ -59,13 +69,14 @@ Have a manually-tuned preset that sounds great?
 2. **Document it**
    - Add to `CREATED_PRESETS.md` with:
      - Date
-     - Headphone model
+     - Device model and type
      - Genre/style
      - Your reasoning for the EQ curve
 
 3. **Name it properly**
-   - Format: `[Genre] - [Headphone Model].peace`
+   - Format: `[Genre] - [Device Model].peace`
    - Example: `Progressive House - Sony WH-1000XM5.peace`
+   - Example: `Jazz - JBL Flip 6.peace`
 
 4. **Submit via PR**
 
@@ -74,18 +85,20 @@ Have a manually-tuned preset that sounds great?
 Found something wrong with a preset?
 
 **Open an issue with:**
-- Headphone model
+- Device model and type (headphone/speaker/etc)
 - Preset name
 - What sounds off (too much bass, harsh highs, etc.)
 - Your audio source (streaming quality, file format)
 - Your Peace/Equalizer APO version
+- For speakers: room size and placement
 
 ### 4. Request New Presets
 
-Want a preset for a specific genre/headphone combo?
+Want a preset for a specific genre/device combo?
 
 **Open an issue with:**
-- Headphone model (must have a profile already, or include research)
+- Device model (must have a profile already, or include research)
+- Device type (headphone/speaker/etc)
 - Music genre/style
 - Reference tracks (optional)
 - Any specific preferences
@@ -120,6 +133,8 @@ Want a preset for a specific genre/headphone combo?
 2. **Create a feature branch**
    ```bash
    git checkout -b add-sony-wh1000xm5-profile
+   # or
+   git checkout -b add-bose-soundlink-profile
    ```
 3. **Make your changes**
    - Follow existing file structure
@@ -129,11 +144,15 @@ Want a preset for a specific genre/headphone combo?
 4. **Commit with clear messages**
    ```bash
    git commit -m "Add Sony WH-1000XM5 headphone profile"
+   # or
+   git commit -m "Add Bose SoundLink Flex speaker profile"
    ```
 
 5. **Push and create PR**
    ```bash
    git push origin add-sony-wh1000xm5-profile
+   # or
+   git push origin add-bose-soundlink-profile
    ```
 
 6. **Describe your changes**
