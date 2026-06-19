@@ -23,6 +23,12 @@ Each preset is designed by:
 - **Heavy Metal - JBL Tune 520BT.peace** - Extreme clarity via deep mid-scoop (-6dB @577Hz), tames JBL's natural bass bloat (-4dB @166Hz), strong sub-bass punch (+7dB @10Hz), aggressive highs (+7dB @20kHz) for cymbal definition
 - **Melodic Metal - JBL Tune 520BT.peace** - Balanced correction with moderate mid-scoop (-4dB @577Hz) preserving melodic vocals/guitars, controlled bass (+6dB @10Hz), smoother highs (+6.5dB @20kHz) for harmonic richness without harshness
 
+### 2026-06-19
+
+#### JBL Flip 6 (Portable Speaker)
+- **Metal - JBL Flip 6.peace** - Aggressive V-shape optimized for portable speaker: controlled sub-bass punch (+3.5dB @42Hz), deep mid-bass cut (-3dB @166Hz) to eliminate JBL's boom, aggressive treble (+4.5-5.5dB @8-16kHz) for cymbal clarity and Bluetooth compensation, moderate mid-scoop for instrument separation
+- **Hard Rock - JBL Flip 6.peace** - Balanced rock curve for portable listening: moderate sub-bass (+3dB @42Hz), controlled mid-bass cut (-2dB @166Hz) preventing muddiness, smooth mids (+0.5-1.5dB @1-2kHz) for vocal/guitar clarity, gentler treble boost (+4-5dB @8-16kHz) for detail without harshness
+
 ---
 
-Total presets: 6 (3 per headphone model)
+Total presets: 8 (3 headphone/Sennheiser HD 4.40 BT, 3 headphone/JBL Tune 520BT, 2 speaker/JBL Flip 6)
