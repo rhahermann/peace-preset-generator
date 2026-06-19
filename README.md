@@ -6,11 +6,39 @@ AI-powered EQ preset generator for [Peace Equalizer](https://sourceforge.net/pro
 
 ## 🎧 What is This?
 
-A systematic approach to creating high-quality EQ presets that compensate for specific headphone characteristics while optimizing for different music genres. Instead of manually tuning EQ curves, this generator uses audio engineering knowledge to create presets tailored to:
+An **AI-powered preset generator** that creates genre-optimized EQ profiles for Peace Equalizer. Unlike generic device correction profiles, this tool generates **ready-to-import presets** that combine:
 
-- **Your specific headphones** (frequency response compensation)
-- **Your music genre** (genre-appropriate EQ curves)
-- **Professional audio principles** (optimal frequency balance)
+- **Headphone-specific compensation** - Corrects your model's frequency response weaknesses
+- **Genre-specific optimization** - Different curves for Metal, Trance, Classical, etc.
+- **Audio engineering expertise** - Professional EQ principles applied automatically
+
+### What Makes This Different?
+
+**✅ This project generates:**
+- Genre-tailored presets (same headphones, different sound for different music)
+- Ready-to-import `.peace` files (no manual configuration)
+- AI-assisted creation at scale (request any genre + headphone combination)
+- Detailed engineering rationale for each preset
+
+**❌ This is NOT:**
+- A manual device correction database
+- A one-size-fits-all EQ profile
+- A replacement for researching your headphone's characteristics
+- Audio driver software or hardware modification
+
+**Think of it as:** A smart preset factory that understands both your headphones' technical limitations AND what your favorite music genres need to shine.
+
+## 🔍 Real-World Example
+
+**Scenario:** You own Sennheiser HD 4.40 BT headphones and listen to both Heavy Metal and Classical music.
+
+**Generic device profile approach:** One EQ curve that "corrects" your headphones. Sounds decent for everything, perfect for nothing.
+
+**This generator's approach:** 
+- `Heavy Metal - HD 4.40 BT.peace` - Aggressive, punchy, V-shaped curve
+- `Classical - HD 4.40 BT.peace` - Natural, balanced, minimal coloration
+
+Same headphones, different presets, optimized for each genre's specific needs.
 
 ## 🚀 Quick Start
 
@@ -151,6 +179,32 @@ Found a preset that sounds off? Open an issue with:
 - [`headphone_profiles/`](headphone_profiles/) - Individual headphone analysis documents
 - [`CONTRIBUTING.md`](CONTRIBUTING.md) - Contribution guidelines
 
+## 🎯 Core Philosophy
+
+### Genre + Headphone = Optimized Sound
+
+This generator solves a specific problem: **Your headphones sound different depending on what you're listening to.**
+
+A heavy metal track needs punchy, aggressive mids and controlled bass. A vocal trance track needs deep sub-bass and sparkling highs. Classical music needs natural balance with minimal coloration.
+
+**Generic device profiles can't do this.** They correct the headphone but ignore the music.
+
+This tool creates **targeted presets** that answer: *"How should these specific headphones be EQ'd for this specific genre?"*
+
+### What You Get
+
+Each generated preset includes:
+- **Headphone analysis** - What frequencies need correction
+- **Genre requirements** - What the music style demands
+- **Engineering rationale** - Why each frequency band is adjusted
+- **Ready-to-use file** - Just import and listen
+
+### What You Need to Provide
+
+- Your exact headphone model (or add it to the profiles)
+- The music genre you want optimized
+- Trust in audio engineering principles (or tweak to taste)
+
 ## 🔬 Technical Details
 
 ### Why These Specific Frequencies?
@@ -177,6 +231,22 @@ Bluetooth presets account for:
 - **Source quality**: High-quality audio files benefit most from EQ
 - **Personal preference**: Feel free to adjust +/- 2dB to taste
 - **Hearing safety**: Avoid excessive bass boost at high volumes
+- **Genre-specific**: A "Heavy Metal" preset will sound wrong on classical music (that's the point!)
+- **Not a fix-all**: Can't fix broken drivers or poor source material
+
+## 💡 Use Cases
+
+**Perfect for:**
+- Music enthusiasts who listen to multiple genres
+- Audiophiles wanting optimized sound per music style
+- Users tired of manually tweaking EQ for different playlists
+- Anyone wanting professional-grade presets without the learning curve
+
+**Not ideal for:**
+- All-purpose "set and forget" EQ (use generic device profiles instead)
+- Professional mixing/mastering (use flat reference monitoring)
+- Fixing hardware defects (get better headphones)
+- Live audio processing (latency considerations)
 
 ## 📜 License
 

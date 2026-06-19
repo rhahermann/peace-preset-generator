@@ -1,6 +1,15 @@
 # Peace Equalizer Preset Generator
 
-This repository generates custom Peace Equalizer presets based on music genres and listening styles, optimized for specific headphone models.
+This repository generates **genre-specific** Peace Equalizer presets optimized for individual headphone models.
+
+## Key Distinction
+
+**This is NOT a device correction database.** This generates genre-optimized presets that combine:
+1. Headphone-specific frequency response compensation
+2. Genre-appropriate EQ curves (Metal ≠ Classical ≠ Trance)
+3. Professional audio engineering principles
+
+**Output:** Ready-to-import `.peace` files, not manual frequency specifications.
 
 **Default Target:** Check `config/CONFIG.md` for the currently active headphone profile.  
 **Available Profiles:** See `headphone_profiles/` directory.
@@ -126,9 +135,16 @@ After generating presets, update `CREATED_PRESETS.md` with:
 
 ## Preset Generation Philosophy
 
-**IMPORTANT:** Presets are generated using **audio engineering expertise**, not by copying user samples.
+**IMPORTANT:** Presets are generated using **audio engineering expertise**, not by copying user samples or generic device profiles.
 
-### Process
+### What Makes These Presets Unique
+
+Unlike generic device correction profiles that provide one-size-fits-all EQ:
+- **These are genre-specific** - Heavy Metal gets a different curve than Classical
+- **These combine two analyses** - Headphone weaknesses + Genre requirements
+- **These are ready-to-use** - Output is importable `.peace` files, not manual specs
+
+### Generation Process
 1. **Analyze the headphone** - Read its profile to understand frequency response characteristics, strengths, and weaknesses
 2. **Analyze the genre** - Understand what frequencies and balance the music style requires
 3. **Design the EQ curve** - Apply professional audio engineering principles to:
@@ -136,6 +152,15 @@ After generating presets, update `CREATED_PRESETS.md` with:
    - Enhance genre-appropriate frequencies  
    - Balance technical accuracy with musical enjoyment
 4. **Generate confidently** - Use proven EQ knowledge to create optimal presets
+
+### Why This Matters
+
+A "Vocal Trance" preset for Sennheiser HD 4.40 BT will:
+- Boost sub-bass (genre requirement) BUT limit mid-bass (headphone already bass-heavy)
+- Scoop lower mids (genre requirement) AND avoid the HD 4.40 BT's muddy zone
+- Boost treble (genre requirement) AND compensate for Bluetooth roll-off
+
+This is **impossibe with generic profiles** that don't know what music you're playing.
 
 ### Engineering Principles
 - **Sub-bass (10-42 Hz)**: Impact and rumble for electronic/bass-heavy genres
