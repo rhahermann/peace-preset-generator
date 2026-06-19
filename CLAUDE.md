@@ -1,31 +1,32 @@
 # Peace Equalizer Preset Generator
 
-This repository generates **genre-specific** Peace Equalizer presets optimized for individual headphone models.
+This repository generates **genre-specific** Peace Equalizer presets optimized for individual audio devices (headphones, speakers, soundbars, etc).
 
 ## Key Distinction
 
 **This is NOT a device correction database.** This generates genre-optimized presets that combine:
-1. Headphone-specific frequency response compensation
+1. Device-specific frequency response compensation
 2. Genre-appropriate EQ curves (Metal ≠ Classical ≠ Trance)
 3. Professional audio engineering principles
+4. Use-case considerations (near-field headphones vs room-filling speakers)
 
 **Output:** Ready-to-import `.peace` files, not manual frequency specifications.
 
-**Default Target:** Check `config/CONFIG.md` for the currently active headphone profile.  
-**Available Profiles:** See `headphone_profiles/` directory.
+**Default Target:** Check `config/CONFIG.md` for the currently active device profile.  
+**Available Profiles:** See `device_profiles/` directory organized by device type.
 
 ## Workflow
 
 1. User adds music styles to `config/PRESETS_TO_CREATE.md`
-   - Format: `[Style] @ [Headphone Model]` (or omit model to use default from config/CONFIG.md)
+   - Format: `[Style] @ [Device Model]` (or omit model to use default from config/CONFIG.md)
 2. User says "create the presets" or "run it"
 3. Claude:
-   - Reads `config/CONFIG.md` for the active/default headphone
+   - Reads `config/CONFIG.md` for the active/default device
    - Reads the spec file
-   - For each preset, determines which headphone profile to use
-   - Reads the appropriate profile from `headphone_profiles/[Model].md`
+   - For each preset, determines which device profile to use
+   - Reads the appropriate profile from `device_profiles/[category]/[Model].md`
    - Generates `.peace` files in `output/` folder with format: `[Style] - [Model].peace`
-   - Adds to `config/CREATED_PRESETS.md` with date, description, and target headphone
+   - Adds to `config/CREATED_PRESETS.md` with date, description, and target device
    - Clears completed items from spec file
 
 ## Preset Format
@@ -121,16 +122,17 @@ Quality13=0.7
 ## File Organization
 
 Save all generated presets to `/output` folder:
-- Path: `output/[Style Name] - [Headphone Model].peace`
-- Format: Always include the headphone model in the filename
+- Path: `output/[Style Name] - [Device Model].peace`
+- Format: Always include the device model in the filename
 - Examples: 
   - `output/Heavy Metal - HD 4.40 BT.peace`
-  - `output/Vocal Trance - Sony WH-1000XM5.peace`
+  - `output/Vocal Trance - JBL Flip 6.peace`
+  - `output/Classical - Sony WH-1000XM5.peace`
 
 After generating presets, update `CREATED_PRESETS.md` with:
 - Date of creation
-- Preset name (including headphone model)
-- Target headphone
+- Preset name (including device model)
+- Target device type (headphone/speaker/etc)
 - Brief description of EQ characteristics
 
 ## Preset Generation Philosophy
@@ -145,22 +147,29 @@ Unlike generic device correction profiles that provide one-size-fits-all EQ:
 - **These are ready-to-use** - Output is importable `.peace` files, not manual specs
 
 ### Generation Process
-1. **Analyze the headphone** - Read its profile to understand frequency response characteristics, strengths, and weaknesses
+1. **Analyze the device** - Read its profile to understand frequency response, strengths, weaknesses, and use case
 2. **Analyze the genre** - Understand what frequencies and balance the music style requires
-3. **Design the EQ curve** - Apply professional audio engineering principles to:
-   - Compensate for headphone deficiencies
+3. **Consider the environment** - Headphones vs speakers require different approaches (room acoustics, listening distance)
+4. **Design the EQ curve** - Apply professional audio engineering principles to:
+   - Compensate for device deficiencies
    - Enhance genre-appropriate frequencies  
    - Balance technical accuracy with musical enjoyment
-4. **Generate confidently** - Use proven EQ knowledge to create optimal presets
+5. **Generate confidently** - Use proven EQ knowledge to create optimal presets
 
 ### Why This Matters
 
-A "Vocal Trance" preset for Sennheiser HD 4.40 BT will:
+A "Vocal Trance" preset for **Sennheiser HD 4.40 BT** (headphone) will:
 - Boost sub-bass (genre requirement) BUT limit mid-bass (headphone already bass-heavy)
 - Scoop lower mids (genre requirement) AND avoid the HD 4.40 BT's muddy zone
 - Boost treble (genre requirement) AND compensate for Bluetooth roll-off
 
-This is **impossibe with generic profiles** that don't know what music you're playing.
+The same preset for **JBL Flip 6** (portable speaker) will:
+- Control mid-bass boom (speaker's weakness) MORE aggressively than headphones
+- Account for room boundary reinforcement (wall proximity adds bass)
+- Compensate for listening distance (speakers sound different at 1m vs 3m)
+- Respect physical limits (small speaker can't reproduce deep sub-bass)
+
+This is **impossible with generic profiles** that don't know what music you're playing or how you're listening.
 
 ### Engineering Principles
 - **Sub-bass (10-42 Hz)**: Impact and rumble for electronic/bass-heavy genres
@@ -170,23 +179,42 @@ This is **impossibe with generic profiles** that don't know what music you're pl
 - **Upper mids (4-8 kHz)**: Clarity and definition - careful with sibilance
 - **Treble (8-20 kHz)**: Air and sparkle - boost to compensate for Bluetooth roll-off
 
-### Headphone-Specific Adjustments
+### Device-Specific Adjustments
+
+**Headphones:**
 - **Bass-heavy headphones** (JBL): Cut mid-bass more aggressively, boost treble more
 - **Balanced headphones** (Sennheiser): Moderate adjustments
 - **Bright headphones**: Less treble boost, more careful with 4-8 kHz
 - **Bluetooth models**: Always compensate for high-frequency roll-off
 
-## Adding New Headphone Profiles
+**Speakers:**
+- **Portable speakers** (JBL Flip): Control mid-bass boom, respect sub-bass limits, account for room acoustics
+- **Desktop monitors**: Nearfield listening, accurate midrange, controlled bass
+- **Soundbars**: TV audio compensation, dialog clarity, virtual surround considerations
+- **Home theater**: Multi-channel routing (future), subwoofer crossovers, room correction
 
-To add support for a new headphone:
+## Adding New Device Profiles
 
-1. Research the headphone's frequency response and sound signature
-2. Create `headphone_profiles/[Model Name].md` using existing profiles as template
-3. Include:
+To add support for a new device:
+
+1. Research the device's frequency response and sound signature
+2. Determine device category (headphone, portable speaker, desktop speaker, soundbar, home theater)
+3. Create `device_profiles/[category]/[Model Name].md` using existing profiles as template
+4. Include:
+   - Device type and channel configuration (2.0, 2.1, 5.1, 7.1)
    - Native sound signature (bass/mid/treble characteristics)
-   - Connection type (wired/Bluetooth/USB)
+   - Connection type (wired/Bluetooth/USB/optical)
+   - Use case considerations (listening distance, room placement, volume levels)
    - Known strengths and weaknesses
    - Compensation strategy with frequency-specific guidelines
    - Technical specifications
-4. Add to `CONFIG.md` available profiles list
-5. Optionally update default target in `CONFIG.md`
+   - Physical limitations and warnings
+5. Add to `CONFIG.md` available profiles list
+6. Optionally update default target in `CONFIG.md`
+
+## Future Development
+
+See `ROADMAP.md` for planned features:
+- **Phase 2:** Filter support (HPF, LPF, shelving, notch filters) via EqualizerAPO `.txt` format
+- **Phase 3:** Multi-channel support (5.1, 7.1 surround systems)
+- Additional device categories (IEMs, studio monitors, car audio, gaming headsets)

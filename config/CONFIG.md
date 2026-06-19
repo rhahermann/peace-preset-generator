@@ -1,39 +1,53 @@
 # Configuration
 
-## Active Headphone Profile
+## Active Device Profile
 
-**Current Target:** Sennheiser HD 4.40 BT
+**Current Target:** Sennheiser HD 4.40 BT (Headphone)
 
-All new presets will be generated for this headphone unless otherwise specified.
-
----
-
-## Available Headphone Profiles
-
-1. **Sennheiser HD 4.40 BT** - See `headphone_profiles/Sennheiser HD 4.40 BT.md`
-2. **JBL Tune 520BT** - See `headphone_profiles/JBL Tune 520BT.md` 
+All new presets will be generated for this device unless otherwise specified.
 
 ---
 
-## How to Change Target Headphone
+## Available Device Profiles
 
-1. Create a new profile in `headphone_profiles/[Model Name].md`
+### Headphones
+1. **Sennheiser HD 4.40 BT** - See `device_profiles/headphones/Sennheiser HD 4.40 BT.md`
+2. **JBL Tune 520BT** - See `device_profiles/headphones/JBL Tune 520BT.md`
+
+### Speakers - Portable
+1. **JBL Flip 6** - See `device_profiles/speakers/portable/JBL Flip 6.md`
+
+### Speakers - Desktop
+*(No profiles yet)*
+
+### Speakers - Soundbars
+*(No profiles yet)*
+
+### Speakers - Home Theater
+*(No profiles yet)*
+
+---
+
+## How to Change Target Device
+
+1. Create a new profile in `device_profiles/[category]/[Model Name].md`
 2. Update "Current Target" above
 3. New presets will use the active profile
 
-## How to Generate for Specific Headphone
+## How to Generate for Specific Device
 
 In `PRESETS_TO_CREATE.md`, use this format:
 
 ```
-[Genre/Style] @ [Headphone Model]
+[Genre/Style] @ [Device Model]
 ```
 
 Examples:
 ```
 Vocal Trance @ Sennheiser HD 4.40 BT
-Jazz - Smooth @ Sony WH-1000XM5
+Jazz - Smooth @ JBL Flip 6
 Rock @ Default
+Electronic - Deep House @ JBL Tune 520BT
 ```
 
 If no `@ [Model]` is specified, the active target above will be used.
